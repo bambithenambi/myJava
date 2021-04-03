@@ -76,10 +76,10 @@ public class Frog{
   }
   public String toString(){
     if (isFroglet) {
-      return "My name is "+name+" and I’m a rare froglet! I’m "+age+" months old and my tongue has a speed of "+tongueSpeed+".";
+      return String.format("My name is "+name+" and I’m a rare froglet! I’m %d months old and my tongue has a speed of %.2f.", age, tongueSpeed);
     }
     else {
-      return "My name is "+name+" and I’m a rare frog. I’m "+age+" months old and my tongue has a speed of "+tongueSpeed+".";
+      return String.format("My name is "+name+" and I’m a rare frog. I’m %d months old and my tongue has a speed of %.2f.", age, tongueSpeed);
     }
   }
   public String getSpecies() {
