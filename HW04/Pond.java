@@ -21,8 +21,5 @@ public class Pond {
       frog3.grow(4);
       System.out.println(frog3.toString());
       System.out.println(frog2.toString());
-
-
-
     }
 }

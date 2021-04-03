@@ -45,7 +45,10 @@ public class Fly {
     double start = mass;
     mass += addMass;
     if (start<20) {
-      speed+=(20-start);
+      speed+= (20-start) < addMass ? (20-start) : addMass;
+      if (mass>=20) {
+        speed-=(mass-20)*0.5;
+      }
     }
     else {
       speed-=(addMass)*0.5;

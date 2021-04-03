@@ -36,9 +36,17 @@ public class Frog{
       age += months;
       if (start <12) {
         tongueSpeed+= (12-start) < months ? (12-start) : months;
+        if (age>=30) {
+          tongueSpeed-=(age-30);
+        }
       }
       else if (start>=30) {
         tongueSpeed-=months;
+      }
+      else {
+        if (age>=30) {
+          tongueSpeed-=(age-30);
+        }
       }
       if (tongueSpeed<5){
         tongueSpeed=5;
