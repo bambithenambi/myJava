@@ -1,3 +1,4 @@
+import java.util.*;
 public class BlueAstronaut extends Player implements Crewmate {
     private static final int DEFAULT_SUSLEVEL = 15;
     private static final int DEFAULT_NUMTASKS = 6;
@@ -43,7 +44,7 @@ public class BlueAstronaut extends Player implements Crewmate {
         if (numTasks<=0) {
             numTasks=0;
             System.out.println("I have completed all my tasks");
-            susLevel=(int) (susLevel*0.5)
+            this.setSusLevel((int) (this.getSusLevel()*1.5));
         }
     }
     public boolean equals(Object o) {
@@ -56,7 +57,7 @@ public class BlueAstronaut extends Player implements Crewmate {
         return false;
     }
     public String toString() {
-        String s = super.toString()+" I have "+numtasks+" left over.";
+        String s = super.toString()+" I have "+numTasks+" left over.";
         if (this.getSusLevel()>15) {
             return s.toUpperCase();
         }

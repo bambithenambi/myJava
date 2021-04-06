@@ -55,7 +55,7 @@ public class RedAstronaut extends Player implements Impostor {
     public boolean equals(Object o) {
         if (o instanceof Impostor && super.equals(o)) {
             RedAstronaut p = (RedAstronaut) o;
-            if (skill==p.getSkill()) {
+            if (skill==p.skill) {
                 return true;
             }
         }
