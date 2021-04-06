@@ -13,6 +13,9 @@ public class RedAstronaut extends Player implements Impostor {
     }
 
     public void emergencyMeeting() {
+        if (this.isFrozen()) {
+            return;
+        }
         Arrays.sort(getPlayers());
         Player[] players = getPlayers();
         for (int i = players.length-1; i>0; i--) {

@@ -16,6 +16,9 @@ public class BlueAstronaut extends Player implements Crewmate {
     }
 
     public void emergencyMeeting() {
+        if (this.isFrozen()) {
+            return;
+        }
         Arrays.sort(getPlayers());
         Player[] players = getPlayers();
         for (int i = players.length-1; i>0; i--) {
