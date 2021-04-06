@@ -44,7 +44,7 @@ public class BlueAstronaut extends Player implements Crewmate {
         if (numTasks<=0) {
             numTasks=0;
             System.out.println("I have completed all my tasks");
-            this.setSusLevel((int) (this.getSusLevel()*1.5));
+            this.setSusLevel((int) (this.getSusLevel()*0.5));
         }
     }
     public boolean equals(Object o) {
