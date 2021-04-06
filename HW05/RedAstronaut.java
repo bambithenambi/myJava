@@ -55,21 +55,17 @@ public class RedAstronaut extends Player implements Impostor {
     public boolean equals(Object o) {
         if (o instanceof Impostor && super.equals(o)) {
             RedAstronaut p = (RedAstronaut) o;
-            if (this.getSkill()==p.getSkill()) {
+            if (skill==p.getSkill()) {
                 return true;
             }
         }
         return false;
     }
     public String toString() {
-        String s = super.toString()+" I am an "+this.getSkill()+" player!";
+        String s = super.toString()+" I am an "+skill+" player!";
         if (this.getSusLevel()>15) {
             return s.toUpperCase();
         }
         return s;
-    }
-
-    public String getSkill() {
-        return skill;
     }
 }

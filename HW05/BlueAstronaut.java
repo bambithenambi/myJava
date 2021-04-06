@@ -43,13 +43,13 @@ public class BlueAstronaut extends Player implements Crewmate {
         if (numTasks<=0) {
             numTasks=0;
             System.out.println("I have completed all my tasks");
-            this.setSusLevel((int) (this.getSusLevel()*0.5));
+            susLevel=(int) (susLevel*0.5)
         }
     }
     public boolean equals(Object o) {
         if (o instanceof Crewmate && super.equals(o)) {
             BlueAstronaut p = (BlueAstronaut) o;
-            if (numTasks==p.getNumTasks() && taskSpeed==p.getTaskSpeed()) {
+            if (numTasks==p.numTasks && taskSpeed==p.taskSpeed) {
                 return true;
             }
         }
@@ -62,22 +62,4 @@ public class BlueAstronaut extends Player implements Crewmate {
         }
         return s;
     }
-
-    public int getNumTasks() {
-        return numTasks;
-    }
-    public void setNumTasks(int numTasks) {
-        if (numTasks<0){
-            this.numTasks=0;
-        }
-        else {
-            this.numTasks=numTasks;
-        }
-    }
-    public int getTaskSpeed() {
-        return taskSpeed;
-    }
-
-
-
 }
