@@ -1,29 +1,29 @@
-public class Dog extends Pet {
-    private final static double DEFAULT_DROOLRATE = 5.0;
-    private double droolRate;
+public class Cat extends Pet {
+    private final static int DEFAULT_MICECAUGHT = 0;
+    private int miceCaught;
 
-    public Dog(String name, double health, int painLevel){
-        this(name, health, painLevel, DEFAULT_DROOLRATE);
+    public Cat(String name, double health, int painLevel){
+        this(name, health, painLevel, DEFAULT_MICECAUGHT);
     }
-    public Dog(String name, double health, int painLevel, double droolRate){
+    public Cat(String name, double health, int painLevel, int miceCaught){
         super(name, health, painLevel);
-        if (droolRate<=0) {
-            droolRate = 0.5;
+        if (miceCaught<0){
+            miceCaught=0;
         }
-        this.droolRate = droolRate;
+        this.miceCaught = miceCaught;
     }
 
-    public double getDroolRate(){
-        return droolRate;
+    public int getMiceCaught(){
+        return miceCaught;
     }
     public int treat(){
         double health = getHealth();
         int painLevel = getPainLevel();
         int minutes;
-        if (droolRate<3.5) {
+        if (miceCaught<4) {
             minutes = (int)((painLevel*2)/health)+1;
         }
-        else if (droolRate<=7.5) {
+        else if (miceCaught<=7) {
             minutes = (int)(painLevel/health)+1;
         }
         else{
@@ -34,7 +34,7 @@ public class Dog extends Pet {
     }
     public void speak(){
         super.speak();
-        String str = "bark ".repeat(getPainLevel());
+        String str = "meow ".repeat(getPainLevel());
         if (getPainLevel()>5){
             System.out.println(str.toUpperCase());
         }
@@ -43,10 +43,12 @@ public class Dog extends Pet {
         }
     }
     public boolean equals(Object o){
-        if (o instanceof Dog && super.equals(o)){
-            Dog d = (Dog) o;
-            return this.droolRate == d.droolRate;
+        if (o instanceof Cat && super.equals(o)){
+            Cat c = (Cat) o;
+            return this.miceCaught == c.miceCaught;
         }
         return false;
     }
+
+
 }
