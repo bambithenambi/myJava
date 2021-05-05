@@ -34,7 +34,7 @@ public class Cat extends Pet {
     }
     public void speak(){
         super.speak();
-        String str = "meow ".repeat(getPainLevel());
+        String str = "meow ".repeat(getPainLevel()).trim();
         if (getPainLevel()>5){
             System.out.println(str.toUpperCase());
         }
