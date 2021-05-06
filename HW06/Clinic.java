@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Clinic{
     private File patientFile;
@@ -87,11 +88,94 @@ public class Clinic{
                 p = new Dog(names[i], health, painLevel, droolRate);
             }
             p.speak();
-            int exitTime = p.treat()+times[i];
+            String exitTime = addTime(Integer.toString(times[i]), p.treat());
             messages[i] = names[i]+","+types[i]+","+data[i]+","+day+","+times[i]+","+exitTime+","+health+","+painLevel;
         }
         day++;
         return String.join("\n", messages);
+    }
+    public boolean addToFile(String patientInfo){
+        Scanner fileScan = null;
+        try {
+            fileScan = new Scanner(patientFile);
+            Scanner counter = new Scanner(patientFile);
+            int count = 0;
+            while(counter.hasNextLine()) {
+                counter.nextLine();
+                count++;
+            }
+            String[] lines = new String[count];
+            String[] names = new String[count];
+            int index = 0;
+            String line = null;
+            while (fileScan.hasNextLine()) {
+                line = fileScan.nextLine();
+                lines[index] = line;
+                Scanner petScan = new Scanner(line);
+                petScan.useDelimiter(",");
+                names[index] = petScan.next();
+                index++;
+            }
+            String[] info = patientInfo.split(",");
+            boolean exists = false;
+            int inc = 0;
+            int location = 0;
+            for (String name : names ) {
+                if (name.equals(info[0])) {
+                    exists=true;
+                    location=inc;
+                    break;
+                }
+                inc++;
+            }
+            PrintWriter filePrint = null;
+            try {
+                filePrint = new PrintWriter(patientFile);
+                if (exists){
+                    for (int i = 0; i < count; i++){
+                        if (i==location){
+                            filePrint.println(patientInfo);
+                        }
+                        else{
+                            filePrint.println(lines[i]);
+                        }
+                    }
+                }
+                else{
+                    for (int i = 0; i < count+1; i++){
+                        if (i==count){
+                            filePrint.println(patientInfo);
+                        }
+                        else{
+                            filePrint.println(lines[i]);
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (FileNotFoundException e) {
+                System.out.println(e.getMessage());
+                return false;
+            }
+            finally {
+                if (filePrint != null) {
+                    filePrint.close();
+                }
+            }
+        }
+        catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        finally {
+            if (fileScan != null) {
+                fileScan.close();
+            }
+        }
+    }
+    private String addTime(String timeIn, int treatmentTime){
+        int in=Integer.parseInt(timeIn)+treatmentTime;
+        return Integer.toString(in);
     }
 
 
