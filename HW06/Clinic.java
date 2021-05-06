@@ -82,14 +82,19 @@ public class Clinic{
             if (types[i].equals("Cat")){
                 int miceCaught = (int) data[i];
                 p = new Cat(names[i], health, painLevel, miceCaught);
+                p.speak();
+                String exitTime = addTime(Integer.toString(times[i]), p.treat());
+                Cat c = (Cat) p;
+                messages[i] = names[i]+","+types[i]+","+c.getMiceCaught()+","+"Day "+day+","+times[i]+","+exitTime+","+p.getHealth()+","+p.getPainLevel();
             }
             else {
                 double droolRate = data[i];
                 p = new Dog(names[i], health, painLevel, droolRate);
+                p.speak();
+                String exitTime = addTime(Integer.toString(times[i]), p.treat());
+                Dog d = (Dog) p;
+                messages[i] = names[i]+","+types[i]+","+d.getDroolRate()+","+"Day "+day+","+times[i]+","+exitTime+","+p.getHealth()+","+p.getPainLevel();
             }
-            p.speak();
-            String exitTime = addTime(Integer.toString(times[i]), p.treat());
-            messages[i] = names[i]+","+types[i]+","+data[i]+","+day+","+times[i]+","+exitTime+","+health+","+painLevel;
         }
         day++;
         return String.join("\n", messages);
