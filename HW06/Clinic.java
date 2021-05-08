@@ -32,7 +32,7 @@ public class Clinic{
         String[] names = new String[count];
         String[] types = new String[count];
         double[] data = new double[count];
-        int[] times = new int[count];
+        String[] times = new String[count];
 
         int index = 0;
         String line = null;
@@ -43,7 +43,7 @@ public class Clinic{
             names[index] = petScan.next(); //consume unused rank token
             types[index] = petScan.next();
             data[index] = petScan.nextDouble();
-            times[index] = petScan.nextInt();
+            times[index] = petScan.next();
             index++;
         }
         Scanner input = new Scanner(System.in);
@@ -83,7 +83,7 @@ public class Clinic{
                 int miceCaught = (int) data[i];
                 p = new Cat(names[i], health, painLevel, miceCaught);
                 p.speak();
-                String exitTime = addTime(Integer.toString(times[i]), p.treat());
+                String exitTime = addTime(times[i], p.treat());
                 Cat c = (Cat) p;
                 messages[i] = names[i]+","+types[i]+","+c.getMiceCaught()+","+"Day "+day+","+times[i]+","+exitTime+","+p.getHealth()+","+p.getPainLevel();
             }
@@ -91,7 +91,7 @@ public class Clinic{
                 double droolRate = data[i];
                 p = new Dog(names[i], health, painLevel, droolRate);
                 p.speak();
-                String exitTime = addTime(Integer.toString(times[i]), p.treat());
+                String exitTime = addTime(times[i], p.treat());
                 Dog d = (Dog) p;
                 messages[i] = names[i]+","+types[i]+","+d.getDroolRate()+","+"Day "+day+","+times[i]+","+exitTime+","+p.getHealth()+","+p.getPainLevel();
             }
