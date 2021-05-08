@@ -19,18 +19,19 @@ public class Cat extends Pet {
     public int treat(){
         double health = getHealth();
         int painLevel = getPainLevel();
+        double m;
         int minutes;
         if (miceCaught<4) {
-            minutes = roundUp(((painLevel*2)/health));
+            m = ((painLevel*2.0)/health);
         }
         else if (miceCaught<=7) {
-            minutes = roundUp((painLevel/health));
+            m = (painLevel*1.0/health);
         }
         else{
-            minutes = roundUp((painLevel/(health*2)));
+            m = (painLevel/(health*2.0));
         }
         heal();
-        return minutes;
+        return roundUp(m);
     }
     public void speak(){
         super.speak();
@@ -49,6 +50,12 @@ public class Cat extends Pet {
         }
         return false;
     }
-
-
+    public int roundUp(double d) {
+        if (d%1.0==0.0) {
+            return (int) d;
+        }
+        else {
+            return (int) d +1;
+        }
+    }
 }

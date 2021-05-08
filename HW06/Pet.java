@@ -51,12 +51,4 @@ public abstract class Pet {
         health = 1.0;
         painLevel = 1;
     }
-    public int roundUp(double d) {
-        if (d%1.0==0.0) {
-            return (int) d;
-        }
-        else {
-            return (int) d +1;
-        }
-    }
 }

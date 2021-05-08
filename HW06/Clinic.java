@@ -83,17 +83,21 @@ public class Clinic{
                 int miceCaught = (int) data[i];
                 p = new Cat(names[i], health, painLevel, miceCaught);
                 p.speak();
+                health = p.getHealth();
+                painLevel = p.getPainLevel();
                 String exitTime = addTime(times[i], p.treat());
                 Cat c = (Cat) p;
-                messages[i] = names[i]+","+types[i]+","+c.getMiceCaught()+","+"Day "+day+","+times[i]+","+exitTime+","+p.getHealth()+","+p.getPainLevel();
+                messages[i] = names[i]+","+types[i]+","+c.getMiceCaught()+","+"Day "+day+","+times[i]+","+exitTime+","+health+","+painLevel;
             }
             else {
                 double droolRate = data[i];
                 p = new Dog(names[i], health, painLevel, droolRate);
                 p.speak();
+                health = p.getHealth();
+                painLevel = p.getPainLevel();
                 String exitTime = addTime(times[i], p.treat());
                 Dog d = (Dog) p;
-                messages[i] = names[i]+","+types[i]+","+d.getDroolRate()+","+"Day "+day+","+times[i]+","+exitTime+","+p.getHealth()+","+p.getPainLevel();
+                messages[i] = names[i]+","+types[i]+","+d.getDroolRate()+","+"Day "+day+","+times[i]+","+exitTime+","+health+","+painLevel;
             }
         }
         day++;
@@ -139,7 +143,7 @@ public class Clinic{
                 if (exists){
                     for (int i = 0; i < count; i++){
                         if (i==location){
-                            filePrint.println(patientInfo);
+                            filePrint.println(lines[i]+","+info[3]+","+info[4]+","+info[5]+","+info[6]+","+info[7]);
                         }
                         else{
                             filePrint.println(lines[i]);
