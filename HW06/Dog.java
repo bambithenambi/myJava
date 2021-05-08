@@ -21,13 +21,13 @@ public class Dog extends Pet {
         int painLevel = getPainLevel();
         int minutes;
         if (droolRate<3.5) {
-            minutes = (int)((painLevel*2)/health)+1;
+            minutes = roundUp(((painLevel*2)/health));
         }
         else if (droolRate<=7.5) {
-            minutes = (int)(painLevel/health)+1;
+            minutes = roundUp((painLevel/health));
         }
         else{
-            minutes = (int)(painLevel/(health*2))+1;
+            minutes = roundUp((painLevel/(health*2)));
         }
         heal();
         return minutes;
