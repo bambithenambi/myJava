@@ -17,12 +17,12 @@ public class LinkedList<T> implements List<T>{
         return tail;
     }
 
-    public void addAtIndex(T data, int index) throws NoSuchElementException, IllegalArgumentException {
+    public void addAtIndex(T data, int index) throws IllegalArgumentException {
         if (data==null){
             throw new IllegalArgumentException("You cannot add null data to the list");
         }
         if (index<0 || index>size){
-            throw new NoSuchElementException("Your index is out of the list bounds");
+            throw new IllegalArgumentException("Your index is out of the list bounds");
         }
         Node<T> element = new Node<>(data);
         if (index==0) {
@@ -45,14 +45,14 @@ public class LinkedList<T> implements List<T>{
 
     public T getAtIndex(int index) throws IllegalArgumentException {
         if (index<0 || index>(size-1)){
-            throw new NoSuchElementException("Your index is out of the list bounds");
+            throw new IllegalArgumentException("Your index is out of the list bounds");
         }
         return getToIndex(index, head).getData();
     }
 
     public T removeAtIndex(int index) throws IllegalArgumentException {
         if (index<0 || index>(size-1)){
-            throw new NoSuchElementException("Your index is out of the list bounds");
+            throw new IllegalArgumentException("Your index is out of the list bounds");
         }
         Node<T> removing = null;
         if (index==0) {
@@ -78,7 +78,7 @@ public class LinkedList<T> implements List<T>{
         return removedData;
     }
 
-    public T remove(T data) {
+    public T remove(T data) throws NoSuchElementException, IllegalArgumentException{
         if (data==null) {
             throw new IllegalArgumentException("You cannot remove null data from the list");
         }
