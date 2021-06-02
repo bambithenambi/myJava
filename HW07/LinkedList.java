@@ -25,12 +25,16 @@ public class LinkedList<T> implements List<T>{
             throw new IllegalArgumentException("Your index is out of the list bounds");
         }
         Node<T> element = new Node<>(data);
+        if (size==0) {
+            head = element;
+            tail = element;
+        }
         if (index==0) {
             Node<T> oldHead = head;
             head = element;
             head.setNext(oldHead);
         }
-        if (index==size) {
+        else if (index==size) {
             tail.setNext(element);
             tail = element;
         }
@@ -111,13 +115,17 @@ public class LinkedList<T> implements List<T>{
     }
 
     private int getToData(T data, Node<T> current, int index) {
-        if (current.getData()==data){
+        if (size==0){
+            return 0;
+        }
+        else if (current.getData()==data){
             return index;
         }
         else if (index==(size-1)){
             return size;
         }
-        return getToData(data, current.getNext(), index++);
+        index++;
+        return getToData(data, current.getNext(), index);
     }
 
 

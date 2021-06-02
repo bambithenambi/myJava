@@ -1,110 +1,19 @@
-[Executed at: Sun May 16 21:25:34 PDT 2021]
+[Executed at: Wed Jun 2 11:00:12 PDT 2021]
 
-Error: All homework did not pass
-Running: removeAtIndex_test_correct_variables
-Optional[java.lang.NullPointerException]
-Failed: Got Exception adding at index 0 in list of expected size 0
-Finished: removeAtIndex_test_correct_variables
-Running: get_test_return_correct
-Optional[java.lang.NullPointerException]
-Failed: Got Exception adding at index 0 in list of expected size 0
-Finished: get_test_return_correct
 Running: private_helpers_test
 Failed: You have unnecessary private helper methods.
-Finished: private_helpers_test
-Running: testClear
-Finished: testClear
-Running: testSize
-Finished: testSize
-Running: removeAtIndex_test_invalid_index
-Optional[java.lang.NullPointerException]
-Failed: Got Exception adding at index 0 in list of expected size 0
-Finished: removeAtIndex_test_invalid_index
-Running: removeAtIndex_test_on_empty
-Failed: Expected IllegalArgumentException removing at index -100 in what should be an empty list but got NoSuchElementException
 
-Finished: removeAtIndex_test_on_empty
-Running: get_test_invalid_index
-Optional[java.lang.NullPointerException]
-Failed: Got Exception adding at index 0 in list of expected size 0
-Finished: get_test_invalid_index
-Running: removeAtIndex_test_correct_index
-Optional[java.lang.NullPointerException]
-Failed: Got Exception adding at index 0 in list of expected size 1
-Finished: removeAtIndex_test_correct_index
-Running: constructor_test
-Finished: constructor_test
-Running: get_test_on_empty
-Failed: Expected IllegalArgumentException getting at index -100 in what should be an empty list but got NoSuchElementException
-
-Finished: get_test_on_empty
-Running: addAtIndex_test_invalid_index
-Finished: addAtIndex_test_invalid_index
-Running: addAtIndex_test_fields
-Failed: Got Exception adding at index 0 in list of expected size 0
-Got NullPointerException(LinkedList.addAtIndex(LinkedList.java:34))
-Finished: addAtIndex_test_fields
 Running: remove_test_on_empty
 Failed: Expected NoSuchElementException removing data -100 in what should be an empty list but got NullPointerException
 
-Finished: remove_test_on_empty
-Running: addAtIndex_test_correct_index
-Failed: Got Exception adding at index 0 in list of expected size 0
-Got NullPointerException(LinkedList.addAtIndex(LinkedList.java:34))
-Finished: addAtIndex_test_correct_index
 Running: remove_test_return
-Optional[java.lang.NullPointerException]
-Failed: Got Exception adding at index 0 in list of expected size 0
-Finished: remove_test_return
-Running: testIsEmpty
-Optional[java.lang.NullPointerException]
-Failed: Got Exception adding at index 0 in list of expected size 0
-Finished: testIsEmpty
-Running: remove_test_correct_variables
-Optional[java.lang.NullPointerException]
-Failed: Got Exception adding at index 0 in list of expected size 0
-Finished: remove_test_correct_variables
+Failed: Expected 626865112 at index 45 but got 321031870
+
 Running: testRemove
-Optional[java.lang.NullPointerException]
-Failed: Got Exception adding at index 0 in list of expected size 0
-Finished: testRemove
-Running: removeAtIndex_test_return
-Optional[java.lang.NullPointerException]
-Failed: Got Exception adding at index 0 in list of expected size 0
-Finished: removeAtIndex_test_return
+Failed: Expected 702107918 at index 8 but got 1889383203
+
 Running: remove_test_correct_index
-Optional[java.lang.NullPointerException]
-Failed: Got Exception adding at index 0 in list of expected size 0
-Finished: remove_test_correct_index
-Running: test_data_private
-Visibility of instance field data is correct
-Finished: test_data_private
-Running: test_setData_exists
-Finished: test_setData_exists
-Running: test_getNext_exists
-Finished: test_getNext_exists
-Running: test_node_next_getter
-Node class getter for next is correct.
-Finished: test_node_next_getter
-Running: test_node_next_setter
-Node class setter for next is correct.
-Finished: test_node_next_setter
-Running: test_next_private
-Visibility of instance field next is correct
-Finished: test_next_private
-Running: test_getData_exists
-Finished: test_getData_exists
-Running: oneArgConstructor
-One-arg constructor declared correctly
-Finished: oneArgConstructor
-Running: twoArgConstructor
-Two-arg constructor declared correctly
-Finished: twoArgConstructor
-Running: test_node_data_getter
-Node class getter for data is correct.
-Finished: test_node_data_getter
-Running: test_setNext_exists
-Finished: test_setNext_exists
-Running: test_node_data_setter
-Node class setter for data is correct.
-Finished: test_node_data_setter
+Failed: For data in Node at index 0: expected:<1339510721> but was:<2073025425>
+
+Test run: 33, Passed: 28, Failed: 5
+Score: 84/100
